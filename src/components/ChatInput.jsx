@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const ChatInput = ({ onSend }) => {
   const [text, setText] = useState("");
@@ -8,18 +8,16 @@ const ChatInput = ({ onSend }) => {
       const now = new Date();
       const hours = now.getHours().toString().padStart(2, "0");
       const minutes = now.getMinutes().toString().padStart(2, "0");
-  
+
       const newMessage = {
         id: Math.random().toString(36).substring(2, 9),
         text: text,
-        time: `${hours}:${minutes}`, 
-        
+        time: `${hours}:${minutes}`,
       };
       onSend(newMessage);
       setText("");
     }
   };
-  
 
   return (
     <div className="chat-input">
